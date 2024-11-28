@@ -1,0 +1,11 @@
+# Enable the Rewrite Engine
+RewriteEngine On
+
+# Redirect requests without .html to their corresponding .html files
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html [L]
+
+# Optional: Redirect requests with .html to clean URLs (to enforce clean URLs)
+RewriteCond %{THE_REQUEST} "^[A-Z]{3,}\s([^.]+)\.html\sHTTP"
+RewriteRule ^(.*)\.html$ /$1 [R=301,L]
