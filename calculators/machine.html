@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Machine Drafting GradeGlide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            font-size: 18px;
+            background: #f9f9f9;
+            border-left: 4px solid #5cb85c;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Machine Drafting GradeGlide</h1>
+        <div class="form-group">
+            <label for="technical">Technical Accuracy (out of 10):</label>
+            <input type="number" id="technical" placeholder="Enter a value">
+        </div>
+        <div class="form-group">
+            <label for="lineQuality">Line Quality and Drafting (out of 10):</label>
+            <input type="number" id="lineQuality" placeholder="Enter a value">
+        </div>
+        <div class="form-group">
+            <label for="layout">Layout and Presentation (out of 10):</label>
+            <input type="number" id="layout" placeholder="Enter a value">
+        </div>
+        <div class="form-group">
+            <label for="completeness">Completeness and Adherence (out of 10):</label>
+            <input type="number" id="completeness" placeholder="Enter a value">
+        </div>
+        <button onclick="calculateGrade()">Calculate Grade</button>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function calculateGrade() {
+            const technical = parseFloat(document.getElementById('technical').value) || 0;
+            const lineQuality = parseFloat(document.getElementById('lineQuality').value) || 0;
+            const layout = parseFloat(document.getElementById('layout').value) || 0;
+            const completeness = parseFloat(document.getElementById('completeness').value) || 0;
+
+            const TA = (technical / 10) * 40;
+            const LQD = (lineQuality / 10) * 30;
+            const LP = (layout / 10) * 20;
+            const CA = (completeness / 10) * 10;
+
+            const total = TA + LQD + LP + CA;
+
+            document.getElementById('result').innerHTML = `
+                <p>Technical Accuracy (TA): ${TA.toFixed(2)}%</p>
+                <p>Line Quality and Drafting (LQD): ${LQD.toFixed(2)}%</p>
+                <p>Layout and Presentation (LP): ${LP.toFixed(2)}%</p>
+                <p>Completeness and Adherence (CA): ${CA.toFixed(2)}%</p>
+                <strong>Total Grade: ${total.toFixed(2)}%</strong>
+            `;
+        }
+    </script>
+</body>
+</html>
