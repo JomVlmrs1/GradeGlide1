@@ -103,8 +103,10 @@
             <label for="completeness">Completeness and Adherence (out of 10):</label>
             <input type="number" id="completeness" placeholder="Enter a value" min="1" max="10">
         </div>
-        <button onclick="calculateGrade()">Calculate Grade</button><br>
+        <button onclick="calculateGrade()">Calculate Grade</button>
+        <hr>
         <button onclick="goBack()">Return to Calculators</button>
+        <hr>
         <div class="result" id="result"></div>
     </div>
 
@@ -167,7 +169,8 @@
         }
 
         function goBack() {
-            window.location.href = "./../calculators.html"; 
+        	window.location.href = "./../calculators.html"; 
+        }
     </script>
 </body>
 </html>
