@@ -104,6 +104,7 @@
             <input type="number" id="completeness" placeholder="Enter a value" min="1" max="10">
         </div>
         <button onclick="calculateGrade()">Calculate Grade</button>
+        <button onclick="clearFields()">Clear</button>
         <hr>
         <button onclick="goBack()">Return to Calculators</button>
         <hr>
@@ -166,6 +167,14 @@
                 <p>Completeness and Adherence (CA): ${CA.toFixed(2)}%</p>
                 <strong>Total Grade: ${total.toFixed(2)}%</strong>
             `;
+        }
+
+        function clearFields() {
+            document.getElementById('technical').value = '';
+            document.getElementById('lineQuality').value = '';
+            document.getElementById('layout').value = '';
+            document.getElementById('completeness').value = '';
+            document.getElementById('result').innerHTML = '';
         }
 
         function goBack() {

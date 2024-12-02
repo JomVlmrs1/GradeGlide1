@@ -105,6 +105,8 @@
         </div>
         <button onclick="calculateGrade()">Calculate Grade</button>
         <hr>
+        <button onclick="clearFields()">Clear</button>
+        <hr>
         <button onclick="goBack()">Return to Calculators</button>
         <hr>
         <div class="result" id="result"></div>
@@ -168,8 +170,16 @@
             `;
         }
 
+        function clearFields() {
+            document.getElementById('technical').value = '';
+            document.getElementById('lineQuality').value = '';
+            document.getElementById('layout').value = '';
+            document.getElementById('completeness').value = '';
+            document.getElementById('result').innerHTML = '';
+        }
+
         function goBack() {
-        	window.location.href = "./../calculators.html"; 
+            window.location.href = "./../calculators.html"; 
         }
     </script>
 </body>
